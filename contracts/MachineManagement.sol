@@ -1,9 +1,9 @@
-//SPDX-License-Identifier: MIT
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4 <0.9;
 
 contract MachineManagement {
     // number of mantainance to do
-    uint public taskCount = 0;
+    uint public taskCount = 69;
 
     struct Task {
         uint id;

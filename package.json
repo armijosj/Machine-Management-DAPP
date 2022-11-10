@@ -10,7 +10,7 @@
         "dev": "lite-server",
         "test": "echo \"Error: no test specified\" && sexit 1"
     },
-    "author": "gregory@dappuniversity.com",
+    "author": "Juan Armijos",
     "license": "ISC",
     "devDependencies": {
         "bootstrap": "4.1.3",
@@ -23,6 +23,7 @@
         "truffle-contract": "3.0.6"
     },
     "dependencies": {
+        "ethers": "^5.7.2",
         "web3": "^1.8.0"
     }
 }

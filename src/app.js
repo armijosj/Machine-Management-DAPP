@@ -1,10 +1,14 @@
-function App() {
+const myContractAddress = "0x3Be3A7be94240651E7046F24B65b0B582aD29607";
+const emptyAddress = '0x0000000000000000000000000000000000000000';
+ 
 
  // Sets up a new Ethereum provider and returns an interface for interacting with the smart contract
  async function initializeProvider() {
-   const provider = new ethers.providers.Web3Provider(window.ethereum);
-   const signer = provider.getSigner();
-   return new ethers.Contract(AuctionContractAddress, Auction.abi, signer);
+  const MachineManagement = await $.getJSON("MachineManagement.json")
+
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  return new ethers.Contract(myContractAddress, MachineManagement.abi, signer);
  }
 
  // Displays a prompt for the user to select which accounts to connect
@@ -13,17 +17,20 @@ function App() {
    setAccount(account[0]);
  }
 
-async function sayHello() {
-  console.log("Helooo!!")
-}
- return ("Hello");
-}
 
-async function Hello(){
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
-  await provider.send("eth_requestAccounts", []);
-  const signer = provider.getSigner()
-  blockNumber = await provider.getBlockNumber()
-  console.log("Hello Mia mor")
+async function Hello() {
+  if (typeof window.ethereum !== 'undefined') {
+    const contract = await initializeProvider();
+    try {
+      const count = await contract.taskCount();
+      // console.log("The count is---->: "+ count)
+      // console.log(contract)
+
+    } catch (e) {
+      console.log('error ocurred: ', e);
+    }
+  }
+  //blockNumber = await provider.getBlockNumber()
+  console.log("Working")
 
 }
