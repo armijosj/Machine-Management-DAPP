@@ -3,7 +3,8 @@ pragma solidity >=0.4 <0.9;
 
 contract MachineManagement {
     // number of mantainance to do
-    uint public taskCount = 69;
+
+    uint public taskCount = 0;
 
     struct Task {
         uint id;
@@ -39,6 +40,10 @@ contract MachineManagement {
         _task.completed = !_task.completed;
         tasks[_id] = _task;
         emit TaskCompleted(_id, _task.completed);
+    }
+
+    function getTaskCount() public view returns ( uint ) {
+        return taskCount;
     }
 
 }

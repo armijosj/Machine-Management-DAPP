@@ -7,30 +7,41 @@
 
     <title>Machine Management</title>
   </head>
-      <body style="background-color: #faf2e4; margin: 0 15%; font-family: sans-serif;">
-          <h2 style="text-align: center; font-family: serif; font-weight: bold; border-bottom: 2px solid #57b1dc;margin-top: 30px;">Machine Management</h2>
-          <h3 style="color: #d1633c; font-size: 1.15em;">New Post: </h3>
-          <div id ="newMemo">
-              <span>Memo:</span>
-              <input type="text" id="memo" name="memo">
-              <button onclick="Hello()" style="background-color: #209b14; color: white; cursor: pointer;"> Hello </button>
+    <body style="background-color: #fefbe9; margin: 0 15%; font-family: sans-serif;">
+      <h2 style="text-align: center; color:#f0a04b; font-family:'Lucida Grande'; font-size: xxx-large; font-weight: bolder; border-bottom: 5px solid #183a1d;margin-top: 15%px;">Machine Management</h2>
+      <div id ="newTask">
+          <button onclick="createNewTask()" style="background-color: #f0a04b; color: white; cursor: pointer; border: none"> Create </button>
+      </div>
+      
+      <div id='PopUp' style='display: none; border: solid black 1px; padding: 10px; background-color: rgb(200,100,100); text-align: justify; font-size: 12px; width: 135px;' >
+        <span>Enter New Task:</span>
+        <input type="text" id="newTaskInput">
+        <button onclick="createNewTask()" style="background-color: #f0a04b; color: white; cursor: pointer; border: none"> Create </button>
+      </div>
+      <h3 style="color: #183a1d; font-size: 1.15em;">Tasks: </h3>
+      <div style="line-height: 2; color: white; font-family: 'Trebuchet MS'; font-size: large;" id ="allTasks">
+          <!-- Here goes the new Tasks -->
+          <div id= "aTask" style="background-color:#183a1d; margin-bottom: 1%;"> 
+            <label style="position: sticky; left: 17%; font-weight: bold;">ID: 1 </label>
+            <label style="position: sticky; left: 25%"> Type: Corrective </label>
+            <label style="position: sticky; left: 40%"> Machine: Drying Machine </label>
+            <label style="position: sticky; left: 60%"> Reason: Unexpected </label>
+            <button id="sometask1" style="position: sticky; left: 80%; background-color: #e1eedd; color: black; cursor: pointer;"> DONE </button>
           </div>
-          <h3 style="color: #d1633c; font-size: 1.15em;">Past Memos: </h3>
-          <div style="line-height: 2;" id ="allMemos">
-              <!-- Here goes the new Memos -->
+
+          <div id= "aTask" style="background-color:#183a1d; margin-bottom: 1%;"> 
+            <label style="position: sticky; left: 17%; font-weight: bold;">ID: 1 </label>
+            <label style="position: sticky; left: 25%"> Type: Maintenance </label>
+            <label style="position: sticky; left: 40%"> Machine: Washing Machine </label>
+            <label style="position: sticky; left: 60%"> Reason: Other </label>
+            <button id="sometask1" style="position: sticky; left: 80%; background-color: #e1eedd; color: black; cursor: pointer;"> DONE </button>
           </div>
+      </div>
      
   
-
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"type="application/javascript"></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@truffle/contract@4.3.5/dist/truffle-contract.js"></script> -->
-
-   
     <script src="app.js"></script>
   </body>
 </html>
