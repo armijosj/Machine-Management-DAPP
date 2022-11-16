@@ -5,7 +5,7 @@
 - [Truffle Framework](http://truffleframework.com/)
 - [Ganache](https://trufflesuite.com/ganache/)
 - [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
-- [Etherjs] (https://docs.ethers.io/v5/)
+- [Etherjs](https://docs.ethers.io/v5/)
 
 
 ## Introduction
