@@ -1,0 +1,111 @@
+body {
+    background-color: #fefbe9; 
+    margin: 0 15%; 
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center; color:#f0a04b; 
+    font-family:'Lucida Grande'; 
+    font-size: xxx-large; 
+    font-weight: bolder; 
+    border-bottom: 5px solid #183a1d;
+    margin-top: 15%px;
+}
+
+h3 {
+    color: #183a1d; 
+    font-size: 2em;
+}
+
+label {
+    position: sticky;
+}
+
+form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid rgba(220, 220, 220, 0.785);
+    background-color: #e4e4e4fc;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    font-size: medium;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+  }
+
+  input[type="reset"] {
+    background-color: #de0e0e;
+    color: white;
+    font-size: medium;
+    padding: 12px;
+    width: 25%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  input[type="reset"]:hover {
+    background-color: #d10e0ece;
+  }
+
+  input[type="checkbox"] {
+    position: sticky; 
+    left: 80%; 
+    width: 15px; 
+    height: 15px; 
+    top:23.6%
+}
+
+#createNewTask {
+    background-color: #d57713; 
+    position: absolute;
+    color: white; 
+    cursor: pointer; 
+    border: none;
+    left: 80.5%;
+    font-size: x-large; 
+}
+
+#PopUp {
+    display: none; 
+    position: absolute;
+    z-index: 1000;
+    top: 20%;
+    left: 40%;
+}
+
+#createButton {
+    background-color: #f0a04b; 
+    color: white; 
+    cursor: pointer; 
+    border: none
+}
+
+#allTasks {
+    line-height: 2; 
+    color: white; 
+    font-family: 'Trebuchet MS'; 
+    font-size: large;
+}
+
+
+#aTask {
+    background-color:#183a1d; 
+    margin-bottom: 1%;
+}
