@@ -1,12 +1,13 @@
-const TodoList = artifacts.require('./MachineManagement.sol')
+// DEPRECATED TEST - It only works with the previous version of Solidity. Testing has been done manually throught the Web Application.
 
-contract('TodoList', (accounts) => {
+const TodoList = require('../build/contracts/MachineManagement.json')
+contract('MachineManagement', (accounts) => {
   before(async () => {
-    this.todoList = await TodoList.deployed()
+    this.machineManagement = await MachineManagement.deployed()
   })
 
   it('deploys successfully', async () => {
-    const address = await this.todoList.address
+    const address = await this.machineManagement.address
     assert.notEqual(address, 0x0)
     assert.notEqual(address, '')
     assert.notEqual(address, null)
@@ -14,31 +15,31 @@ contract('TodoList', (accounts) => {
   })
 
   it('lists tasks', async () => {
-    const taskCount = await this.todoList.taskCount()
-    const task = await this.todoList.tasks(taskCount)
-    assert.equal(task.id.toNumber(), taskCount.toNumber())
-    assert.equal(task.content, 'Genesis-Task')
-    assert.equal(task.completed, false)
+    const taskCount = await this.machineManagement.taskCount()
+    const task = await this.machineManagement.tasks(taskCount)
+    assert.equal(0, taskCount.toNumber())
+
+    const result = await this.machineManagement.createTask('aType', 'aMachine', 'aReason')
+    taskCount = await this.machineManagement.taskCount()
+    assert.equal(result.completed, false)
     assert.equal(taskCount.toNumber(), 1)
   })
 
   it('creates tasks', async () => {
-    const result = await this.todoList.createTask('A new task')
-    const taskCount = await this.todoList.taskCount()
+    const result = await this.machineManagement.createTask('anotherType', 'anotherMachine', 'anotherReason')
+    const taskCount = await this.machineManagement.taskCount()
     assert.equal(taskCount, 2)
-    const event = result.logs[0].args
-    assert.equal(event.id.toNumber(), 2)
-    assert.equal(event.content, 'A new task')
-    assert.equal(event.completed, false)
+    machineManagement.getValues(0)
+    result = machineManagement.tasks(2)
+    assert.equal(result.type, 'anotherType')
   })
 
   it('toggles task completion', async () => {
-    const result = await this.todoList.toggleCompleted(1)
-    const task = await this.todoList.tasks(1)
+    const result = await this.machineManagement.toggleCompleted(1)
+    const task = await this.machineManagement.tasks(1)
     assert.equal(task.completed, true)
-    const event = result.logs[0].args
-    assert.equal(event.id.toNumber(), 1)
-    assert.equal(event.completed, true)
+    result = await this.machineManagement.toggleCompleted(1)
+    assert.equal(task.completed, false)
   })
 
 })

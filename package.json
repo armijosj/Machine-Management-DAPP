@@ -1,5 +1,5 @@
 {
-    "name": "eth-todo-list",
+    "name": "machine-management",
     "version": "1.0.0",
     "description": "Blockchain DAPP By Ethereum",
     "main": "truffle-config.js",
@@ -8,7 +8,7 @@
     },
     "scripts": {
         "dev": "lite-server",
-        "test": "echo \"Error: no test specified\" && sexit 1"
+        "test": "echo \"Error: no test at the time.\""
     },
     "author": "Juan Armijos",
     "license": "ISC",

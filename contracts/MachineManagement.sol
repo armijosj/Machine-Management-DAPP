@@ -6,19 +6,24 @@ contract MachineManagement {
         uint id;
         string taskType;
         string machine;
-        string source;
+        string reason;
         bool completed;
     }
     
+    //Counter
     uint public taskCount = 0;
 
+    //Array (Hash table) of tasks
     mapping(uint => Task) public tasks;
 
+    //--------------------------------------------------------
+    // Events
+    //--------------------------------------------------------
     event TaskCreated(
         uint id,
         string taskType,
         string machine,
-        string source,
+        string reason,
         bool completed
     );
 
@@ -27,10 +32,14 @@ contract MachineManagement {
         bool completed
     );
 
-    function createTask(string memory _taskType, string memory _machine, string memory _source) public {
-        tasks[taskCount] = Task(taskCount, _taskType, _machine, _source, false);
+
+    //--------------------------------------------------------
+    // Functions
+    //--------------------------------------------------------
+    function createTask(string memory _taskType, string memory _machine, string memory _reason) public {
+        tasks[taskCount] = Task(taskCount, _taskType, _machine, _reason, false);
         taskCount ++;
-        emit TaskCreated(taskCount, _taskType, _machine, _source, false);
+        emit TaskCreated(taskCount, _taskType, _machine, _reason, false);
     }
 
     function toggleCompleted(uint _id) public {
@@ -46,8 +55,6 @@ contract MachineManagement {
 
     function getValues( uint _id) public view returns ( string memory, string memory , string memory , bool  ){
         Task memory myTask = tasks[_id];
-        return (myTask.taskType , myTask.machine ,  myTask.source ,  myTask.completed );
+        return (myTask.taskType , myTask.machine ,  myTask.reason ,  myTask.completed );
     }
-
-
 }
