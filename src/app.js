@@ -1,4 +1,4 @@
-const myContractAddress = "0xfeb6554989391F24b6A73AeA8A9feCc7168EEab9";  // <- paste address here
+const myContractAddress = "0xd62aD1B7799CdD7D3AE63FE8a0bc88857624FC51";  // <- paste address here
  
 window.myContract = null;
 
@@ -69,5 +69,8 @@ function showPopUp() {
 }
 
 function hidePopUp() {
+  document.getElementById("type").value = "";
+  document.getElementById("machine").value = "" ;
+  document.getElementById("reason").value = "";
   document.getElementById("PopUp").style.display = "none";
 }
