@@ -9,7 +9,7 @@
 
 
 ## Report
-See [Report](https://github.com/armijosj/comp-4300-project/blob/main/docs/Report.docx) for details.
+See [Report](https://github.com/armijosj/comp-4300-project/blob/main/docs/Report.pdf) for details.
 
 ## Demo Video
 Follow the link: [Demo Video](https://youtu.be/yAdG1yjrU0c)
