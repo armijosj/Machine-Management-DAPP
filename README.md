@@ -1,6 +1,6 @@
-# comp-4300-project
-
-## Prerequisites:
+# Machine Management
+---
+## Technologies:
 - [NodeJS](https://nodejs.org/en/)
 - [Truffle Framework](http://truffleframework.com/)
 - [Ganache](https://trufflesuite.com/ganache/)
@@ -8,5 +8,8 @@
 - [Etherjs](https://docs.ethers.io/v5/)
 
 
-## Introduction
-Maintenance management application for industries. Developed a smart contract written in [Solidity](https://docs.soliditylang.org/). It facilitates the managements of machine maintanance and spare parts orders.
+## Report
+See [Report](https://github.com/armijosj/comp-4300-project/blob/main/docs/Report.docx) for details.
+
+## Demo Video
+Follow the link: [Demo Video](https://youtu.be/yAdG1yjrU0c)

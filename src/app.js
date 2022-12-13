@@ -1,4 +1,4 @@
-const myContractAddress = "0xd62aD1B7799CdD7D3AE63FE8a0bc88857624FC51";  // <- paste address here
+const myContractAddress = "0x9D6b67DFDcc9ddAfc9815Ba677747b8a39e58B24";  // <- paste address here
  
 window.myContract = null;
 
