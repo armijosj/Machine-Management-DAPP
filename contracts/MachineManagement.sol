@@ -2,21 +2,23 @@
 pragma solidity >=0.4 <0.9;
 
 contract MachineManagement {
-    // number of mantainance to do
-
-    uint public taskCount = 0;
-
     struct Task {
         uint id;
-        string content;
+        string taskType;
+        string machine;
+        string source;
         bool completed;
     }
+    
+    uint public taskCount = 0;
 
     mapping(uint => Task) public tasks;
 
     event TaskCreated(
         uint id,
-        string content,
+        string taskType,
+        string machine,
+        string source,
         bool completed
     );
 
@@ -25,14 +27,10 @@ contract MachineManagement {
         bool completed
     );
 
-    constructor() public {
-        createTask("Genesis-Task");
-    }
-
-    function createTask(string memory _content) public {
+    function createTask(string memory _taskType, string memory _machine, string memory _source) public {
+        tasks[taskCount] = Task(taskCount, _taskType, _machine, _source, false);
         taskCount ++;
-        tasks[taskCount] = Task(taskCount, _content, false);
-        emit TaskCreated(taskCount, _content, false);
+        emit TaskCreated(taskCount, _taskType, _machine, _source, false);
     }
 
     function toggleCompleted(uint _id) public {
@@ -45,5 +43,11 @@ contract MachineManagement {
     function getTaskCount() public view returns ( uint ) {
         return taskCount;
     }
+
+    function getValues( uint _id) public view returns ( string memory, string memory , string memory , bool  ){
+        Task memory myTask = tasks[_id];
+        return (myTask.taskType , myTask.machine ,  myTask.source ,  myTask.completed );
+    }
+
 
 }

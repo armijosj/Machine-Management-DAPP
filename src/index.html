@@ -12,6 +12,7 @@
       <h2>Machine Management</h2>
       <div id ="newTask">
           <button onclick="showPopUp()" id = "createNewTask" > Create </button>
+          <button onclick="updateTasks()" id = "refreshTasks" > Refresh </button>
       </div>
       
       <div id='PopUp' >
@@ -30,13 +31,6 @@
       <h3>Tasks: </h3>
       <div id ="allTasks">
           <!-- Here goes the new Tasks -->
-          <div id= "aTask"> 
-            <label style="left: 17%">ID: 0 </label>
-            <label style="left: 25%"> Type: Genesis Task </label>
-            <label style="left: 40%"> Machine: Example </label>
-            <label style="left: 60%"> Reason: Other </label>
-            <input id="task0" type="checkbox" />
-          </div>
       </div>
   
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>

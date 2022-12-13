@@ -82,6 +82,16 @@ input[type="text"] {
     font-size: x-large; 
 }
 
+#refreshTasks {
+    background-color: #161616; 
+    position: absolute;
+    color: white; 
+    cursor: pointer; 
+    border: none;
+    left: 71%;
+    font-size: x-large; 
+}
+
 #PopUp {
     display: none; 
     position: absolute;
@@ -97,15 +107,11 @@ input[type="text"] {
     border: none
 }
 
-#allTasks {
+#aTask {
+    background-color:#183a1d; 
+    margin-bottom: 1%;
     line-height: 2; 
     color: white; 
     font-family: 'Trebuchet MS'; 
     font-size: large;
-}
-
-
-#aTask {
-    background-color:#183a1d; 
-    margin-bottom: 1%;
 }

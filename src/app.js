@@ -1,7 +1,8 @@
-const myContractAddress = "0xb27efc32DaA574146383A50B48fe5c655f3d1bc6";
-const emptyAddress = '0x0000000000000000000000000000000000000000';
+const myContractAddress = "0x127f1b918723e704c2b5Fa902E5c5833AEC1FB97";
  
 window.myContract = null;
+
+var localTasks = 0;
 
 window.onload = function() {
   initializeProvider();
@@ -17,46 +18,49 @@ window.onload = function() {
  }
 
 
-
 async function createNewTask() {
   if (typeof window.ethereum !== 'undefined') {
     try {
-      //const myContract = await initializeProvider();
-      
-
-      //await myContract.createTask("This is a task")
       var type = document.getElementById("type").value;
       var machine = document.getElementById("machine").value;
       var reason = document.getElementById("reason").value;
-
-
-      console.log(type);
-      console.log(machine);
-      console.log(reason);
-
-      //const count = await window.myContract.createTask(text);
-      //console.log("id should be"+ count);
-
+      const response = await window.myContract.createTask(type, machine, reason);
       updateTasks();
-      //hidePopUp()
+      hidePopUp();
     } catch(e) {
       console.log(e);
     }
   }
 }
 
-//To hide or delete an element use the display: none - document.getElementById("myDIV").style.display = "none";
-
 async function updateTasks() {
+  document.getElementById("allTasks").innerHTML="<div id =\"firstTask\"></div>";
+  const currNumTasks = await window.myContract.taskCount();
+  for ( var i = 0; i< currNumTasks; i++){
+  const values = await window.myContract.getValues( i )
+    var content = "<div id= \"aTask\"> <label style=\"left: 17%\">ID: " + i + " </label>"
+                + "<label style=\"left: 25%\"> Type:" + values[0] + " </label> " 
+                + "<label style=\"left: 40%\"> Machine: " + values[1] + " </label> "
+                + "<label style=\"left: 60%\"> Reason:" + values[2] + " </label> <input onclick=\"checkTask( " + i + " )\" type=\"checkbox\" ";
+    console.log(values);            
+    if (values[3]){
+      content += "checked /> </div>";
+    } else {
+      content += "/> </div>";
+    }          
+    document.getElementById("firstTask").insertAdjacentHTML("afterend", content);
+  }  
+}
 
-  //const count = await window.myContract.taskCount();
-  //idStr = "task" + num
-  var content = "<div id= \"aTask\"> <label style=\"left: 17%\">ID: 0 </label>"
-              + "<label style=\"left: 25%\"> Type: Genesis Task </label> " 
-              + "<label style=\"left: 40%\"> Machine: Example </label> "
-              + "<label style=\"left: 60%\"> Reason: Other </label> <input id=\"CheckBox\" type=\"checkbox\" /> </div>";
-
-  document.getElementById("allTasks").insertAdjacentHTML("afterend", content);
+async function checkTask( inputID ) {
+  if (typeof window.ethereum !== 'undefined') {
+    try {
+      const response = await window.myContract.toggleCompleted(inputID);
+      updateTasks();
+    } catch(e) {
+      console.log(e);
+    }
+  }
 }
 
 
